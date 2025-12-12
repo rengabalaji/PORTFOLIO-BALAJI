@@ -31,7 +31,7 @@ const ParticleBackground = () => {
     canvas.height = height;
 
     const particles: Particle[] = [];
-    const particleCount = 200;
+    const particleCount = 100;
 
     for (let i = 0; i < particleCount; i++) {
         const vx = (Math.random() - 0.5) * 0.3;
@@ -58,8 +58,28 @@ const ParticleBackground = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
+      
+      const mouseInteractionDist = 150;
+      const pushFactor = 0.5;
 
       particles.forEach(p => {
+        const distToMouse = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+        
+        if (distToMouse < mouseInteractionDist) {
+          const angle = Math.atan2(p.y - mouse.y, p.x - mouse.x);
+          const force = (mouseInteractionDist - distToMouse) / mouseInteractionDist;
+          p.vx += Math.cos(angle) * force * pushFactor;
+          p.vy += Math.sin(angle) * force * pushFactor;
+        }
+
+        // Apply friction to slow down the push effect
+        p.vx *= 0.98;
+        p.vy *= 0.98;
+
+        // Ensure particles return to their original gentle movement
+        if (Math.abs(p.vx) < Math.abs(p.originalVx)) p.vx = p.originalVx;
+        if (Math.abs(p.vy) < Math.abs(p.originalVy)) p.vy = p.originalVy;
+
         p.x += p.vx;
         p.y += p.vy;
 
@@ -86,20 +106,6 @@ const ParticleBackground = () => {
         }
       }
       
-      const mouseInteractionDist = 200;
-       for (let i = 0; i < particles.length; i++) {
-          const dist = Math.hypot(particles[i].x - mouse.x, particles[i].y - mouse.y);
-          if (dist < mouseInteractionDist) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `hsla(0, 0%, 98%, ${1 - dist / mouseInteractionDist})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
-          }
-        }
-
-
       requestAnimationFrame(animate);
     };
 
