@@ -103,7 +103,11 @@ export default {
         'float': {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
-        }
+        },
+        'spin-slow': {
+            '0%': { transform: 'rotate(0deg)' },
+            '100%': { transform: 'rotate(360deg)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -112,6 +116,7 @@ export default {
         'glow': 'glow 4s ease-in-out infinite',
         'button-glow': 'button-glow 4s ease-in-out infinite',
         'float': 'float 6s ease-in-out infinite',
+        'float-spin': 'float linear infinite, spin-slow linear infinite alternate-reverse',
       },
     },
   },
