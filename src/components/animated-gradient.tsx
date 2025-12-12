@@ -8,13 +8,13 @@ const AnimatedGradient = () => {
     >
       <div
         className={cn(
-          "absolute top-0 right-0 h-[100vmax] w-[100vmax] -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/20 blur-3xl",
+          "absolute -top-1/4 right-0 h-[80vmax] w-[80vmax] -translate-y-1/2 translate-x-1/4 rounded-full bg-primary/30 blur-3xl",
           "animate-[spin_40s_linear_infinite]"
         )}
       />
       <div
         className={cn(
-          "absolute bottom-0 left-0 h-[80vmax] w-[80vmax] translate-y-1/2 -translate-x-1/2 rounded-full bg-neutral-800/40 blur-3xl",
+          "absolute -bottom-1/4 left-0 h-[60vmax] w-[60vmax] translate-y-1/2 -translate-x-1/4 rounded-full bg-blue-950/70 blur-3xl",
           "animate-[spin_45s_linear_infinite_reverse]"
         )}
       />
