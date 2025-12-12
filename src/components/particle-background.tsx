@@ -31,7 +31,7 @@ const ParticleBackground = () => {
     canvas.height = height;
 
     const particles: Particle[] = [];
-    const particleCount = 100;
+    const particleCount = 200;
 
     for (let i = 0; i < particleCount; i++) {
         const vx = (Math.random() - 0.5) * 0.3;
@@ -60,24 +60,6 @@ const ParticleBackground = () => {
       ctx.clearRect(0, 0, width, height);
 
       particles.forEach(p => {
-        const mouseDist = Math.hypot(p.x - mouse.x, p.y - mouse.y);
-        const pushFactor = 150;
-        const pushAcceleration = 0.5;
-        const returnAcceleration = 0.05;
-
-        if (mouseDist < pushFactor) {
-            const angle = Math.atan2(p.y - mouse.y, p.x - mouse.x);
-            const force = (pushFactor - mouseDist) / pushFactor;
-            p.vx += Math.cos(angle) * force * pushAcceleration;
-            p.vy += Math.sin(angle) * force * pushAcceleration;
-        } else {
-             // Gently return to original velocity
-            if (p.vx > p.originalVx) p.vx -= returnAcceleration;
-            else if (p.vx < p.originalVx) p.vx += returnAcceleration;
-            if (p.vy > p.originalVy) p.vy -= returnAcceleration;
-            else if (p.vy < p.originalVy) p.vy += returnAcceleration;
-        }
-        
         p.x += p.vx;
         p.y += p.vy;
 
