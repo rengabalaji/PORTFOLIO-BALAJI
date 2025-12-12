@@ -89,7 +89,7 @@ export const navLinks = [
 ];
 
 export const heroData = {
-    name: "Alex Doe",
+    name: "Renga Balaji",
     profession: "Creative Developer & UI/UX Designer",
     intro: "I craft immersive and beautiful web experiences with a passion for modern design and cutting-edge technologies. My goal is to build products that are not only functional but also a delight to use.",
     achievements: [
