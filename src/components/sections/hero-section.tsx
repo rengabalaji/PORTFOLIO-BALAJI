@@ -17,7 +17,7 @@ const HeroSection = () => {
 
   return (
     <section id="#" className="flex items-center">
-      <div className="w-full grid md:grid-cols-1 gap-12 items-center">
+      <div className="w-full grid md:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col gap-6 text-center md:text-left items-center md:items-start">
           <h1 className="font-headline text-5xl md:text-7xl font-bold">
             <span className="block text-foreground">{heroData.name}</span>
@@ -30,16 +30,16 @@ const HeroSection = () => {
              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground animate-button-glow" onClick={handleHireMeClick}>
                 Hire Me <ArrowRight className="ml-2 h-5 w-5" />
              </Button>
-             <div className="flex gap-2">
-                {socialLinks.map((link) => (
-                    <Button asChild key={link.name} variant="ghost" size="icon" className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-300 transform hover:scale-110">
-                    <Link href={link.link} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
-                        <link.icon className="h-6 w-6" />
-                    </Link>
-                    </Button>
-                ))}
-             </div>
           </div>
+        </div>
+        <div className="hidden md:flex flex-col items-center justify-center gap-4">
+            {socialLinks.map((link) => (
+                <Button asChild key={link.name} variant="ghost" size="icon" className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-300 transform hover:scale-125">
+                <Link href={link.link} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
+                    <link.icon className="h-7 w-7" />
+                </Link>
+                </Button>
+            ))}
         </div>
       </div>
     </section>
