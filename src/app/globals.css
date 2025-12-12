@@ -5,25 +5,25 @@
 
 @layer base {
   :root {
-    --background: 250 50% 10%; /* Deep Navy/Purple */
+    --background: 0 0% 5%; /* Almost Black */
     --foreground: 0 0% 98%; /* White */
-    --card: 250 40% 15%;
+    --card: 0 0% 10%;
     --card-foreground: 0 0% 98%;
-    --popover: 250 40% 15%;
+    --popover: 0 0% 10%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 84% 54%; /* Bright Red */
     --primary-foreground: 0 0% 98%;
-    --secondary: 250 40% 20%;
+    --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 250 40% 20%;
+    --muted: 0 0% 15%;
     --muted-foreground: 0 0% 63.9%;
-    --accent: 45 100% 50%; /* Gold */
+    --accent: 0 0% 80%; /* Light Gray as Accent */
     --accent-foreground: 0 0% 10%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 250 40% 25%;
-    --input: 250 40% 25%;
-    --ring: 45 100% 50%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 84% 54%;
     --radius: 0.5rem;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;

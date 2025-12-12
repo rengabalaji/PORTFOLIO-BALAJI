@@ -14,7 +14,7 @@ const AnimatedGradient = () => {
       />
       <div
         className={cn(
-          "absolute bottom-0 left-0 h-[80vmax] w-[80vmax] translate-y-1/2 -translate-x-1/2 rounded-full bg-indigo-900/40 blur-3xl",
+          "absolute bottom-0 left-0 h-[80vmax] w-[80vmax] translate-y-1/2 -translate-x-1/2 rounded-full bg-neutral-800/40 blur-3xl",
           "animate-[spin_45s_linear_infinite_reverse]"
         )}
       />

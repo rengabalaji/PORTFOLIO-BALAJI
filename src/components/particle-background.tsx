@@ -7,25 +7,48 @@ const ParticleBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const numParticles = 80;
+    const numParticles = 100; // Increased particle count
     const newParticles = Array.from({ length: numParticles }).map((_, i) => {
-      const size = Math.random() * 2.5 + 0.5;
-      const duration = Math.random() * 20 + 15;
-      const delay = Math.random() * 10;
-      const isNode = Math.random() > 0.8;
+      const size = Math.random() * 2 + 1; // Slightly larger particles
+      const duration = Math.random() * 30 + 20; // Slower, more varied speed
+      const delay = Math.random() * -20;
+      const startX = Math.random() * 100;
+      const startY = Math.random() * 100;
+
+      // New animation style: lines moving vertically
       const style = {
-        width: isNode ? `${size * 1.5}px` : `${size}px`,
-        height: isNode ? `${size * 1.5}px` : `${size}px`,
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        animationDuration: `${duration}s, ${duration / 2}s`,
-        animationDelay: `-${delay}s`,
-        boxShadow: isNode ? '0 0 8px hsl(var(--accent))' : 'none',
-        borderRadius: isNode ? '50%' : '1px',
+        width: '1.5px',
+        height: `${Math.random() * 50 + 20}px`,
+        left: `${startX}%`,
+        top: `${startY}%`,
+        animationName: 'fall',
+        animationDuration: `${duration}s`,
+        animationDelay: `${delay}s`,
+        animationIterationCount: 'infinite',
+        animationTimingFunction: 'linear',
+        backgroundColor: `hsl(var(--primary), ${Math.random() * 0.4 + 0.3})`
       };
-      return <div key={i} className="absolute bg-accent/60 animate-float-spin" style={style} />;
+      return <div key={i} className="absolute" style={style as any} />;
     });
     setParticles(newParticles);
+
+    const styleSheet = document.createElement("style");
+    styleSheet.innerText = `
+      @keyframes fall {
+        from {
+          transform: translateY(-100vh);
+        }
+        to {
+          transform: translateY(100vh);
+        }
+      }
+    `;
+    document.head.appendChild(styleSheet);
+    
+    return () => {
+        document.head.removeChild(styleSheet);
+    }
+
   }, []);
 
   useEffect(() => {
@@ -34,7 +57,7 @@ const ParticleBackground = () => {
         const { clientX, clientY } = e;
         const x = (clientX / window.innerWidth - 0.5) * 2; // -1 to 1
         const y = (clientY / window.innerHeight - 0.5) * 2; // -1 to 1
-        containerRef.current.style.transform = `perspective(1000px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateZ(-50px)`;
+        containerRef.current.style.transform = `perspective(1000px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateZ(-50px)`;
       }
     };
     
@@ -45,7 +68,7 @@ const ParticleBackground = () => {
   return (
     <div
       ref={containerRef}
-      className="fixed top-0 left-0 w-full h-full -z-20 transition-transform duration-300 ease-out"
+      className="fixed top-0 left-0 w-full h-full -z-20 transition-transform duration-300 ease-out overflow-hidden"
       style={{ transformStyle: 'preserve-3d' }}
     >
       {particles}
