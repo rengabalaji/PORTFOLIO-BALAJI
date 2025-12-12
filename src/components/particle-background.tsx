@@ -10,6 +10,8 @@ interface Particle {
   vx: number;
   vy: number;
   radius: number;
+  originalVx: number;
+  originalVy: number;
 }
 
 const ParticleBackground = () => {
@@ -32,13 +34,17 @@ const ParticleBackground = () => {
     const particleCount = 100;
 
     for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 1.5 + 1,
-      });
+        const vx = (Math.random() - 0.5) * 0.7;
+        const vy = (Math.random() - 0.5) * 0.7;
+        particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: vx,
+            vy: vy,
+            originalVx: vx,
+            originalVy: vy,
+            radius: Math.random() * 1.5 + 1,
+        });
     }
 
     let mouse = { x: -1000, y: -1000 };
@@ -54,6 +60,21 @@ const ParticleBackground = () => {
       ctx.clearRect(0, 0, width, height);
 
       particles.forEach(p => {
+        const mouseDist = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+        const pushFactor = 200;
+        const pushAcceleration = 5;
+
+        if (mouseDist < pushFactor) {
+            const angle = Math.atan2(p.y - mouse.y, p.x - mouse.x);
+            const force = (pushFactor - mouseDist) / pushFactor;
+            p.vx += Math.cos(angle) * force * pushAcceleration;
+            p.vy += Math.sin(angle) * force * pushAcceleration;
+        }
+
+        // Apply friction
+        p.vx *= 0.96;
+        p.vy *= 0.96;
+
         p.x += p.vx;
         p.y += p.vy;
 
@@ -62,32 +83,32 @@ const ParticleBackground = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'hsla(30, 80%, 55%, 0.8)';
+        ctx.fillStyle = 'hsla(0, 84%, 54%, 0.8)';
         ctx.fill();
       });
 
       for (let i = 0; i < particles.length; i++) {
         for (let j = i; j < particles.length; j++) {
           const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
-          if (dist < 100) {
+          if (dist < 150) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(30, 80%, 55%, ${1 - dist / 100})`;
+            ctx.strokeStyle = `hsla(0, 84%, 54%, ${1 - dist / 150})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
       }
       
-      const mouseDist = 120;
+      const mouseInteractionDist = 200;
        for (let i = 0; i < particles.length; i++) {
           const dist = Math.hypot(particles[i].x - mouse.x, particles[i].y - mouse.y);
-          if (dist < mouseDist) {
+          if (dist < mouseInteractionDist) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `hsla(0, 84%, 54%, ${1 - dist / mouseDist})`;
+            ctx.strokeStyle = `hsla(0, 0%, 98%, ${1 - dist / mouseInteractionDist})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
