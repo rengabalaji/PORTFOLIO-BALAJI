@@ -19,16 +19,7 @@ import { useControllableState } from '@radix-ui/react-use-controllable-state';
 
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isSheetOpen, setSheetOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
   
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href === 'home') {
@@ -40,10 +31,7 @@ const Header = () => {
 
 
   return (
-    <header className={cn(
-      "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-      isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
-    )}>
+    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="w-24"></div> {/* Placeholder for spacing */}
