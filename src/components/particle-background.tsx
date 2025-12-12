@@ -10,6 +10,8 @@ interface Particle {
   vx: number;
   vy: number;
   radius: number;
+  originalX: number;
+  originalY: number;
   originalVx: number;
   originalVy: number;
 }
@@ -34,11 +36,15 @@ const ParticleBackground = () => {
     const particleCount = 100;
 
     for (let i = 0; i < particleCount; i++) {
+        const x = Math.random() * width;
+        const y = Math.random() * height;
         const vx = (Math.random() - 0.5) * 0.3;
         const vy = (Math.random() - 0.5) * 0.3;
         particles.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
+            x: x,
+            y: y,
+            originalX: x,
+            originalY: y,
             vx: vx,
             vy: vy,
             originalVx: vx,
@@ -60,7 +66,8 @@ const ParticleBackground = () => {
       ctx.clearRect(0, 0, width, height);
       
       const mouseInteractionDist = 150;
-      const pushFactor = 0.5;
+      const pushFactor = 0.05; // Slow push effect
+      const returnFactor = 0.02; // Slow return to original position
 
       particles.forEach(p => {
         const distToMouse = Math.hypot(p.x - mouse.x, p.y - mouse.y);
@@ -72,19 +79,29 @@ const ParticleBackground = () => {
           p.vy += Math.sin(angle) * force * pushFactor;
         }
 
-        // Apply friction to slow down the push effect
-        p.vx *= 0.98;
-        p.vy *= 0.98;
+        // Gently move back to original position
+        p.vx += (p.originalX - p.x) * returnFactor;
+        p.vy += (p.originalY - p.y) * returnFactor;
+        
+        // Add back the original constant movement
+        p.vx += p.originalVx * 0.1;
+        p.vy += p.originalVy * 0.1;
 
-        // Ensure particles return to their original gentle movement
-        if (Math.abs(p.vx) < Math.abs(p.originalVx)) p.vx = p.originalVx;
-        if (Math.abs(p.vy) < Math.abs(p.originalVy)) p.vy = p.originalVy;
+        // Apply friction to dampen the movement over time
+        p.vx *= 0.95;
+        p.vy *= 0.95;
 
         p.x += p.vx;
         p.y += p.vy;
 
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
+        if (p.x < 0 || p.x > width) {
+            p.vx *= -1;
+            p.originalX = Math.random() * width; // Re-randomize original position
+        }
+        if (p.y < 0 || p.y > height) {
+            p.vy *= -1;
+            p.originalY = Math.random() * height; // Re-randomize original position
+        }
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
@@ -116,6 +133,25 @@ const ParticleBackground = () => {
         height = window.innerHeight;
         canvas.width = width;
         canvas.height = height;
+        // Re-initialize particles on resize to fit new screen
+        particles.length = 0;
+         for (let i = 0; i < particleCount; i++) {
+            const x = Math.random() * width;
+            const y = Math.random() * height;
+            const vx = (Math.random() - 0.5) * 0.3;
+            const vy = (Math.random() - 0.5) * 0.3;
+            particles.push({
+                x: x,
+                y: y,
+                originalX: x,
+                originalY: y,
+                vx: vx,
+                vy: vy,
+                originalVx: vx,
+                originalVy: vy,
+                radius: Math.random() * 1.5 + 1,
+            });
+        }
     }
 
     window.addEventListener('resize', handleResize);
