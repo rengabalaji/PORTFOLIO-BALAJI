@@ -8,7 +8,7 @@ export const projects = [
     tags: ['Next.js', 'Firebase', 'Tailwind CSS', 'Stripe'],
     imageId: 'project-madrasandhai',
     githubLink: 'https://github.com/rengabalaji/Madras-Sandhai',
-    liveLink: '#',
+    liveLink: 'https://madras-sandhai-five.vercel.app/',
   },
 ];
 
