@@ -1,9 +1,12 @@
 import { heroData } from '@/lib/data';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const HeroSection = () => {
+  const heroImage = PlaceHolderImages.find((img) => img.id === 'project-1');
   return (
     <section id="#" className="min-h-screen flex items-center py-32 md:py-40">
       <div className="w-full grid md:grid-cols-2 gap-12 items-center">
@@ -25,17 +28,16 @@ const HeroSection = () => {
         </div>
         <div className="relative">
            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl -z-10"></div>
-           <div className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border">
-                <h3 className="text-2xl font-headline font-semibold mb-4 text-foreground">Key Achievements</h3>
-                <ul className="space-y-3">
-                    {heroData.achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-accent mt-1 flex-shrink-0" />
-                        <span className="text-muted-foreground">{achievement}</span>
-                    </li>
-                    ))}
-                </ul>
-           </div>
+            {heroImage && (
+              <Image
+                src={heroImage.imageUrl}
+                alt="Hero Image"
+                width={600}
+                height={400}
+                className="rounded-2xl object-cover"
+                data-ai-hint={heroImage.imageHint}
+              />
+            )}
         </div>
       </div>
     </section>
