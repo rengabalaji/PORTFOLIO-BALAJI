@@ -10,7 +10,7 @@ import HeroSection from '@/components/sections/hero-section';
 import ProfilesSection from '@/components/sections/profiles-section';
 import ProjectsSection from '@/components/sections/projects-section';
 import SkillsSection from '@/components/sections/skills-section';
-import { Tabs, TabsContent, TabsProvider } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsProvider, useTabsContext } from "@/components/ui/tabs";
 import { useState } from 'react';
 
 export default function Home() {
@@ -23,22 +23,22 @@ export default function Home() {
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <Header />
           <main className="container mx-auto px-4 md:px-8">
-            <TabsContent value="home" className="min-h-screen">
+            <TabsContent value="home">
               <HeroSection />
             </TabsContent>
-            <TabsContent value="projects" className="min-h-screen">
+            <TabsContent value="projects">
               <ProjectsSection />
             </TabsContent>
-            <TabsContent value="skills" className="min-h-screen">
+            <TabsContent value="skills">
               <SkillsSection />
             </TabsContent>
-            <TabsContent value="articles" className="min-h-screen">
+            <TabsContent value="articles">
               <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 my-24 md:my-32">
                 <ArticlesSection />
                 <ProfilesSection />
               </div>
             </TabsContent>
-            <TabsContent value="contact" className="min-h-screen">
+            <TabsContent value="contact">
               <ContactSection />
             </TabsContent>
           </main>
