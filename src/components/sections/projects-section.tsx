@@ -80,13 +80,13 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-24 md:py-32 animate-scroll-in">
+    <section className="py-24 md:py-32">
       <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-12 md:mb-16">
         <span className="text-primary animate-glow">Featured</span> Projects
       </h2>
       <div className="grid md:grid-cols-2 gap-8 md:gap-12">
         {projects.map((project, index) => (
-          <div key={project.title} className="animate-scroll-in" style={{ animationDelay: `${index * 0.2}s`}}>
+          <div key={project.title}>
             <ProjectCard project={project} />
           </div>
         ))}

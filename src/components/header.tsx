@@ -31,14 +31,8 @@ const Header = () => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setSheetOpen(false);
-    } else {
-       const section = document.querySelector(href);
-       if (section) {
-           e.preventDefault();
-           section.scrollIntoView({ behavior: 'smooth' });
-           setSheetOpen(false);
-       }
     }
+    setSheetOpen(false);
   };
 
 

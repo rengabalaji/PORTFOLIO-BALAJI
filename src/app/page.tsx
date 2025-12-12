@@ -17,17 +17,17 @@ export default function Home() {
       <Header />
       <main className="container mx-auto px-4 md:px-8">
         <HeroSection />
-        <div className="scroll-mt-20">
+        <div id="projects">
           <ProjectsSection />
         </div>
-        <div className="scroll-mt-20">
+        <div id="skills">
           <SkillsSection />
         </div>
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 my-24 md:my-32 scroll-mt-20" id="articles">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 my-24 md:my-32" id="articles">
           <ArticlesSection />
           <ProfilesSection />
         </div>
-        <div className="scroll-mt-20">
+        <div id="contact">
           <ContactSection />
         </div>
       </main>

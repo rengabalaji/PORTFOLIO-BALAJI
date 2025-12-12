@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section id="#" className="min-h-screen flex items-center py-32 md:py-40">
       <div className="w-full grid md:grid-cols-2 gap-12 items-center">
-        <div className="flex flex-col gap-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <div className="flex flex-col gap-6">
           <h1 className="font-headline text-5xl md:text-7xl font-bold">
             <span className="block text-foreground">{heroData.name}</span>
             <span className="block text-primary animate-glow">{heroData.profession}</span>
@@ -23,7 +23,7 @@ const HeroSection = () => {
              </Button>
           </div>
         </div>
-        <div className="relative animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+        <div className="relative">
            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl -z-10"></div>
            <div className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border">
                 <h3 className="text-2xl font-headline font-semibold mb-4 text-foreground">Key Achievements</h3>
