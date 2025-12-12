@@ -13,41 +13,46 @@ const Header = () => {
   const [isSheetOpen, setSheetOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="flex justify-end items-center h-20">
-          
-          <TooltipProvider>
-            <TabsList className="hidden md:flex items-center gap-2 bg-card/50 backdrop-blur-sm border-border p-2 rounded-full">
-              {navLinks.map((link) => (
-                <Tooltip key={link.name}>
+    <>
+      {/* Desktop Sidebar */}
+      <aside className="fixed top-0 right-0 h-full z-50 flex items-center">
+        <div className="flex flex-col items-center justify-center p-4">
+            <TooltipProvider>
+              <TabsList className="hidden md:flex flex-col items-center gap-2 bg-card/50 backdrop-blur-sm border-border p-2 rounded-full">
+                {navLinks.map((link) => (
+                  <Tooltip key={link.name}>
+                    <TooltipTrigger asChild>
+                      <TabsTrigger value={link.href} className="text-foreground/80 hover:text-primary transition-colors data-[state=active]:text-primary data-[state=active]:shadow-none data-[state=active]:bg-primary/10 rounded-full h-12 w-12">
+                        <link.icon className="h-6 w-6" />
+                      </TabsTrigger>
+                    </TooltipTrigger>
+                    <TooltipContent side="left" className="bg-background border-border text-foreground">
+                      <p>{link.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                ))}
+                <Tooltip>
                   <TooltipTrigger asChild>
-                    <TabsTrigger value={link.href} className="text-foreground/80 hover:text-primary transition-colors data-[state=active]:text-primary data-[state=active]:shadow-none data-[state=active]:bg-primary/10 rounded-full h-10 w-10">
-                      <link.icon className="h-5 w-5" />
-                    </TabsTrigger>
+                    <Button asChild variant="outline" size="icon" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full h-12 w-12 mt-2">
+                        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                            <FileText className="h-6 w-6" />
+                        </a>
+                    </Button>
                   </TooltipTrigger>
-                  <TooltipContent className="bg-background border-border text-foreground">
-                    <p>{link.name}</p>
+                  <TooltipContent side="left" className="bg-background border-border text-foreground">
+                      <p>Resume</p>
                   </TooltipContent>
                 </Tooltip>
-              ))}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                   <Button asChild variant="outline" size="icon" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full h-10 w-10">
-                      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                          <FileText className="h-5 w-5" />
-                      </a>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent className="bg-background border-border text-foreground">
-                    <p>Resume</p>
-                </TooltipContent>
-              </Tooltip>
-            </TabsList>
-          </TooltipProvider>
+              </TabsList>
+            </TooltipProvider>
+        </div>
+      </aside>
 
-          <div className="md:hidden">
-             <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
+      {/* Mobile Header */}
+      <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent md:hidden">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="flex justify-end items-center h-20">
+            <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <Menu className="h-6 w-6 text-primary" />
@@ -75,8 +80,8 @@ const Header = () => {
             </Sheet>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
 

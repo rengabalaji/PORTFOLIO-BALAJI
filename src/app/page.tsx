@@ -22,7 +22,7 @@ export default function Home() {
       <TabsProvider value={activeTab} onValueChange={setActiveTab}>
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <Header />
-          <main className="container mx-auto px-4 md:px-8">
+          <main className="container mx-auto px-4 md:px-8 md:pr-24">
             <TabsContent value="home">
               <HeroSection />
             </TabsContent>
