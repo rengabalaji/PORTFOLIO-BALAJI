@@ -5,7 +5,7 @@ import { Card } from '../ui/card';
 
 const ProfilesSection = () => {
   return (
-    <section id="profiles" className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+    <section id="profiles" className="animate-scroll-in" style={{ animationDelay: '0.4s' }}>
       <h2 className="text-3xl md:text-4xl font-headline font-bold mb-8">
         Coding <span className="text-accent animate-glow">Profiles</span>
       </h2>

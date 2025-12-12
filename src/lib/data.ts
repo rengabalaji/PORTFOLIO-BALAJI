@@ -81,7 +81,7 @@ export const socialLinks = [
 ];
 
 export const navLinks = [
-    { name: 'About', href: '#about' },
+    { name: 'Home', href: '#' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
     { name: 'Articles', href: '#articles' },

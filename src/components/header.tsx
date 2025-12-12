@@ -25,6 +25,22 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === '#') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setSheetOpen(false);
+    } else {
+       const section = document.querySelector(href);
+       if (section) {
+           e.preventDefault();
+           section.scrollIntoView({ behavior: 'smooth' });
+           setSheetOpen(false);
+       }
+    }
+  };
+
 
   return (
     <header className={cn(
@@ -37,7 +53,7 @@ const Header = () => {
           
           <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="text-foreground/80 hover:text-primary transition-colors">
+              <a key={link.name} href={link.href} onClick={(e) => handleLinkClick(e, link.href)} className="text-foreground/80 hover:text-primary transition-colors">
                 {link.name}
               </a>
             ))}
@@ -62,7 +78,7 @@ const Header = () => {
                 </SheetHeader>
                 <nav className="flex flex-col gap-6 mt-8">
                   {navLinks.map((link) => (
-                    <a key={link.name} href={link.href} className="text-xl text-foreground/80 hover:text-primary transition-colors" onClick={() => setSheetOpen(false)}>
+                    <a key={link.name} href={link.href} className="text-xl text-foreground/80 hover:text-primary transition-colors" onClick={(e) => handleLinkClick(e, link.href)}>
                       {link.name}
                     </a>
                   ))}

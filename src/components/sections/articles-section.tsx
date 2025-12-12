@@ -7,7 +7,7 @@ import { Card } from '../ui/card';
 
 const ArticlesSection = () => {
   return (
-    <section id="articles" className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+    <section className="animate-scroll-in" style={{ animationDelay: '0.2s' }}>
       <h2 className="text-3xl md:text-4xl font-headline font-bold mb-8">
         Featured <span className="text-primary animate-glow">Articles</span>
       </h2>

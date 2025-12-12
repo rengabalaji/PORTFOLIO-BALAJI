@@ -54,7 +54,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32">
+    <section id="contact" className="py-24 md:py-32 animate-scroll-in">
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-headline font-bold mb-4">
           Get In <span className="text-primary animate-glow">Touch</span>

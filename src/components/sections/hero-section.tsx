@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const HeroSection = () => {
   return (
-    <section id="about" className="min-h-screen flex items-center py-32 md:py-40">
+    <section id="#" className="min-h-screen flex items-center py-32 md:py-40">
       <div className="w-full grid md:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col gap-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <h1 className="font-headline text-5xl md:text-7xl font-bold">
