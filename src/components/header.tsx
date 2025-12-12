@@ -33,9 +33,7 @@ const Header = () => {
     )}>
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" className="text-2xl font-headline font-bold text-primary animate-glow">
-            MotionVerse
-          </Link>
+          <div className="w-24"></div> {/* Placeholder for spacing */}
           
           <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
