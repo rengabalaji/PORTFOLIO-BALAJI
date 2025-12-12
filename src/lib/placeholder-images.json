@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "project-madrasandhai",
-      "description": "Bustling marketplace in India.",
-      "imageUrl": "https://images.unsplash.com/photo-1599038234858-76a71b15a6b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBtYXJrZXR8ZW58MHx8fHwxNzY1NjAwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "indian market"
+      "description": "A bustling street food stall in India at dusk, with warm lighting.",
+      "imageUrl": "https://images.unsplash.com/photo-1620789492576-7f724f5a9f58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxpbmRpYW4lMjBzdHJlZXQlMjBmb29kJTIwZHVza3xlbnwwfHx8fDE3MjE4MTg0Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian food"
     },
     {
       "id": "article-1",
