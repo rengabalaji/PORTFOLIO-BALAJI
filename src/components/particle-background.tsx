@@ -34,8 +34,8 @@ const ParticleBackground = () => {
     const particleCount = 100;
 
     for (let i = 0; i < particleCount; i++) {
-        const vx = (Math.random() - 0.5) * 0.7;
-        const vy = (Math.random() - 0.5) * 0.7;
+        const vx = (Math.random() - 0.5) * 0.3;
+        const vy = (Math.random() - 0.5) * 0.3;
         particles.push({
             x: Math.random() * width,
             y: Math.random() * height,
@@ -61,20 +61,23 @@ const ParticleBackground = () => {
 
       particles.forEach(p => {
         const mouseDist = Math.hypot(p.x - mouse.x, p.y - mouse.y);
-        const pushFactor = 200;
-        const pushAcceleration = 5;
+        const pushFactor = 150;
+        const pushAcceleration = 0.5;
+        const returnAcceleration = 0.05;
 
         if (mouseDist < pushFactor) {
             const angle = Math.atan2(p.y - mouse.y, p.x - mouse.x);
             const force = (pushFactor - mouseDist) / pushFactor;
             p.vx += Math.cos(angle) * force * pushAcceleration;
             p.vy += Math.sin(angle) * force * pushAcceleration;
+        } else {
+             // Gently return to original velocity
+            if (p.vx > p.originalVx) p.vx -= returnAcceleration;
+            else if (p.vx < p.originalVx) p.vx += returnAcceleration;
+            if (p.vy > p.originalVy) p.vy -= returnAcceleration;
+            else if (p.vy < p.originalVy) p.vy += returnAcceleration;
         }
-
-        // Apply friction
-        p.vx *= 0.96;
-        p.vy *= 0.96;
-
+        
         p.x += p.vx;
         p.y += p.vy;
 
