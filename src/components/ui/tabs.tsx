@@ -6,7 +6,44 @@ import * as TabsPrimitive from "@radix-ui/react-tabs"
 
 import { cn } from "@/lib/utils"
 
-const Tabs = TabsPrimitive.Root
+const TabsContext = React.createContext<{
+  value: string;
+  onValueChange: (value: string) => void;
+} | null>(null);
+
+const TabsProvider = ({ value, onValueChange, children }: { value: string, onValueChange: (value: string) => void, children: React.ReactNode }) => {
+    return (
+        <TabsContext.Provider value={{ value, onValueChange }}>
+            {children}
+        </TabsContext.Provider>
+    )
+}
+
+const useTabsContext = () => {
+    const context = React.useContext(TabsContext);
+    if (!context) {
+        throw new Error("useTabsContext must be used within a Tabs component");
+    }
+    return context;
+}
+
+const Tabs = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>
+>(({ value, onValueChange, children, ...props }, ref) => {
+    return (
+        <TabsPrimitive.Root
+            ref={ref}
+            value={value}
+            onValueChange={onValueChange}
+            {...props}
+        >
+          {children}
+        </TabsPrimitive.Root>
+    )
+});
+Tabs.displayName = TabsPrimitive.Root.displayName
+
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
@@ -53,17 +90,4 @@ const TabsContent = React.forwardRef<
 ))
 TabsContent.displayName = TabsPrimitive.Content.displayName
 
-const TabsContext = React.createContext<{
-  value: string;
-  onValueChange: (value: string) => void;
-} | null>(null);
-
-const useTabsContext = () => {
-    const context = React.useContext(TabsContext);
-    if (!context) {
-        throw new Error("useTabsContext must be used within a Tabs component");
-    }
-    return context;
-}
-
-export { Tabs, TabsList, TabsTrigger, TabsContent, useTabsContext };
+export { Tabs, TabsList, TabsTrigger, TabsContent, useTabsContext, TabsProvider };

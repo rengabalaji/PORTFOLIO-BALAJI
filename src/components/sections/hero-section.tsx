@@ -1,11 +1,19 @@
+"use client";
+
 import { heroData } from '@/lib/data';
 import { Button } from '@/components/ui/button';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { useTabsContext } from "@/components/ui/tabs";
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
 
 const HeroSection = () => {
+  const tabs = useTabsContext();
+
+  const handleHireMeClick = () => {
+    if (tabs) {
+      tabs.onValueChange("contact");
+    }
+  };
+
   return (
     <section id="#" className="min-h-screen flex items-center py-32 md:py-40">
       <div className="w-full grid md:grid-cols-1 gap-12 items-center">
@@ -18,10 +26,8 @@ const HeroSection = () => {
             {heroData.intro}
           </p>
           <div className="flex flex-wrap gap-4">
-             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground animate-button-glow">
-                <Link href="#contact">
-                    Hire Me <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground animate-button-glow" onClick={handleHireMeClick}>
+                Hire Me <ArrowRight className="ml-2 h-5 w-5" />
              </Button>
           </div>
         </div>
