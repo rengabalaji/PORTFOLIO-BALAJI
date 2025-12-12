@@ -4,7 +4,7 @@ import { Github, Code, Codepen, Linkedin, Briefcase, FileText, Bot, Layers, Shop
 export const projects = [
   {
     title: 'Madrasandhai',
-    description: 'A comprehensive e-commerce platform for discovering and purchasing products from local artisans in Chennai, featuring a modern UI and real-time inventory management.',
+    description: 'A web-based platform connecting Indian street food vendors with trusted raw material suppliers, enabling affordable sourcing and smooth vendor–supplier collaboration.',
     tags: ['Next.js', 'Firebase', 'Tailwind CSS', 'Stripe'],
     imageId: 'project-madrasandhai',
     githubLink: 'https://github.com/rengabalaji/Madras-Sandhai',
