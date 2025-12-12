@@ -7,7 +7,7 @@ export const projects = [
     description: 'A comprehensive e-commerce platform for discovering and purchasing products from local artisans in Chennai, featuring a modern UI and real-time inventory management.',
     tags: ['Next.js', 'Firebase', 'Tailwind CSS', 'Stripe'],
     imageId: 'project-madrasandhai',
-    githubLink: 'https://github.com/rengabalaji',
+    githubLink: 'https://github.com/rengabalaji/Madras-Sandhai',
     liveLink: '#',
   },
 ];
