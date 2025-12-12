@@ -66,8 +66,8 @@ const ParticleBackground = () => {
       ctx.clearRect(0, 0, width, height);
       
       const mouseInteractionDist = 150;
-      const pushFactor = 0.05; // Slow push effect
-      const returnFactor = 0.02; // Slow return to original position
+      const pushFactor = 0.2; // Increased push factor for faster scattering
+      const returnFactor = 0.02;
 
       particles.forEach(p => {
         const distToMouse = Math.hypot(p.x - mouse.x, p.y - mouse.y);
@@ -80,17 +80,16 @@ const ParticleBackground = () => {
           p.vy += Math.sin(angle) * force * pushFactor;
         }
 
-        // Gently move back to original position
-        p.vx += (p.originalX - p.x) * returnFactor;
-        p.vy += (p.originalY - p.y) * returnFactor;
+        // Gently move back towards original position + constant velocity
+        p.vx += (p.originalVx - p.vx) * 0.05;
+        p.vy += (p.originalVy - p.vy) * 0.05;
         
-        // Add back the original constant movement
         p.x += p.vx;
         p.y += p.vy;
 
         // Apply friction to dampen the movement over time
-        p.vx *= 0.95;
-        p.vy *= 0.95;
+        p.vx *= 0.98;
+        p.vy *= 0.98;
         
         if (p.x < 0 || p.x > width) {
             p.vx *= -1;
@@ -107,17 +106,28 @@ const ParticleBackground = () => {
         ctx.fill();
       });
 
+      const maxLineDist = 150;
       for (let i = 0; i < particles.length; i++) {
-        for (let j = i; j < particles.length; j++) {
-          const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
-          if (dist < 150) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(0, 84%, 54%, ${1 - dist / 150})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
+        const distToMouseI = Math.hypot(particles[i].x - mouse.x, particles[i].y - mouse.y);
+        
+        for (let j = i + 1; j < particles.length; j++) {
+            const distToMouseJ = Math.hypot(particles[j].x - mouse.x, particles[j].y - mouse.y);
+          
+            // If either particle is near the mouse, don't draw a line
+            if (distToMouseI < mouseInteractionDist || distToMouseJ < mouseInteractionDist) {
+                continue;
+            }
+
+            const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+
+            if (dist < maxLineDist) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `hsla(0, 84%, 54%, ${1 - dist / maxLineDist})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
         }
       }
       
