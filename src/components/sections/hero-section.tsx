@@ -12,7 +12,7 @@ const HeroSection = () => {
         <div className="flex flex-col gap-6 text-center md:text-left items-center md:items-start">
           <h1 className="font-headline text-5xl md:text-7xl font-bold">
             <span className="block text-foreground">{heroData.name}</span>
-            <span className="block text-primary animate-glow">{heroData.profession}</span>
+            <span className="block text-primary/80">{heroData.profession}</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl">
             {heroData.intro}
