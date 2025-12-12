@@ -1,5 +1,5 @@
 
-import { Github, Code, Codepen, Linkedin, Twitter, Youtube, Instagram, Briefcase, FileText, Bot, Layers, ShoppingCart, BarChart, PenTool } from 'lucide-react';
+import { Github, Code, Codepen, Linkedin, Briefcase, FileText, Bot, Layers, ShoppingCart, BarChart, PenTool } from 'lucide-react';
 
 export const projects = [
   {
@@ -76,7 +76,6 @@ export const codingProfiles = [
 export const socialLinks = [
   { name: 'LinkedIn', link: 'https://www.linkedin.com/in/renga-balaji-s-73251b328?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BGf%2B10adKTFSR%2FVe3GxsJYA%3D%3D', icon: Linkedin },
   { name: 'GitHub', link: 'https://github.com/rengabalaji', icon: Github },
-  { name: 'Instagram', link: '#', icon: Instagram },
 ];
 
 export const navLinks = [
