@@ -30,7 +30,7 @@ const HeroSection = () => {
              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground animate-button-glow" onClick={handleHireMeClick}>
                 Hire Me <ArrowRight className="ml-2 h-5 w-5" />
              </Button>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 ml-4">
                 {socialLinks.map((link) => (
                     <Button asChild key={link.name} variant="ghost" size="icon" className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-300 transform hover:scale-125">
                     <Link href={link.link} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
