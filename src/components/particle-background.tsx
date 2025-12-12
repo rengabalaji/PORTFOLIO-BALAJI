@@ -33,7 +33,7 @@ const ParticleBackground = () => {
     canvas.height = height;
 
     const particles: Particle[] = [];
-    const particleCount = 100;
+    const particleCount = 200;
 
     for (let i = 0; i < particleCount; i++) {
         const x = Math.random() * width;
@@ -72,6 +72,7 @@ const ParticleBackground = () => {
       particles.forEach(p => {
         const distToMouse = Math.hypot(p.x - mouse.x, p.y - mouse.y);
         
+        // Scatter away from cursor
         if (distToMouse < mouseInteractionDist) {
           const angle = Math.atan2(p.y - mouse.y, p.x - mouse.x);
           const force = (mouseInteractionDist - distToMouse) / mouseInteractionDist;
@@ -84,23 +85,20 @@ const ParticleBackground = () => {
         p.vy += (p.originalY - p.y) * returnFactor;
         
         // Add back the original constant movement
-        p.vx += p.originalVx * 0.1;
-        p.vy += p.originalVy * 0.1;
+        p.x += p.vx;
+        p.y += p.vy;
 
         // Apply friction to dampen the movement over time
         p.vx *= 0.95;
         p.vy *= 0.95;
-
-        p.x += p.vx;
-        p.y += p.vy;
-
+        
         if (p.x < 0 || p.x > width) {
             p.vx *= -1;
-            p.originalX = Math.random() * width; // Re-randomize original position
+            p.x = Math.max(0, Math.min(p.x, width)); // Keep within bounds
         }
         if (p.y < 0 || p.y > height) {
             p.vy *= -1;
-            p.originalY = Math.random() * height; // Re-randomize original position
+            p.y = Math.max(0, Math.min(p.y, height)); // Keep within bounds
         }
 
         ctx.beginPath();
