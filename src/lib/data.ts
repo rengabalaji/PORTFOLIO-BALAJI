@@ -7,7 +7,7 @@ export const projects = [
     description: 'A cutting-edge data visualization tool using D3.js and React, providing interactive charts and real-time analytics for enterprise clients.',
     tags: ['React', 'Next.js', 'Tailwind CSS', 'Prisma'],
     imageId: 'project-1',
-    githubLink: '#',
+    githubLink: 'https://github.com/rengabalaji',
     liveLink: '#',
   },
   {
@@ -15,7 +15,7 @@ export const projects = [
     description: 'A fully responsive e-commerce platform with a custom CMS, payment gateway integration, and advanced filtering capabilities.',
     tags: ['Next.js', 'Stripe', 'GraphQL', 'Tailwind CSS'],
     imageId: 'project-2',
-    githubLink: '#',
+    githubLink: 'https://github.com/rengabalaji',
     liveLink: '#',
   },
   {
@@ -23,7 +23,7 @@ export const projects = [
     description: 'A mobile app that leverages machine learning for image recognition, featuring a sleek user interface and offline capabilities.',
     tags: ['React Native', 'TensorFlow.js', 'Firebase'],
     imageId: 'project-3',
-    githubLink: '#',
+    githubLink: 'https://github.com/rengabalaji',
     liveLink: '#',
   },
   {
@@ -31,7 +31,7 @@ export const projects = [
     description: 'A comprehensive dashboard for SaaS products, offering customizable widgets, user role management, and detailed reporting.',
     tags: ['Vue.js', 'Chart.js', 'Express.js', 'MongoDB'],
     imageId: 'project-4',
-    githubLink: '#',
+    githubLink: 'https://github.com/rengabalaji',
     liveLink: '#',
   },
 ];
@@ -67,7 +67,7 @@ export const articles = [
 ];
 
 export const codingProfiles = [
-  { name: 'GitHub', link: '#', icon: Github },
+  { name: 'GitHub', link: 'https://github.com/rengabalaji', icon: Github },
   { name: 'LeetCode', link: '#', icon: Code },
   { name: 'SkillRack', link: '#', icon: Briefcase },
   { name: 'Codepen', link: '#', icon: Codepen },
@@ -75,7 +75,7 @@ export const codingProfiles = [
 
 export const socialLinks = [
   { name: 'LinkedIn', link: 'https://www.linkedin.com/in/renga-balaji-s-73251b328?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BGf%2B10adKTFSR%2FVe3GxsJYA%3D%3D', icon: Linkedin },
-  { name: 'GitHub', link: '#', icon: Github },
+  { name: 'GitHub', link: 'https://github.com/rengabalaji', icon: Github },
   { name: 'Twitter', link: '#', icon: Twitter },
   { name: 'YouTube', link: '#', icon: Youtube },
   { name: 'Instagram', link: '#', icon: Instagram },
