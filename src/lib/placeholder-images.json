@@ -1,28 +1,10 @@
 {
   "placeholderImages": [
     {
-      "id": "project-1",
-      "description": "Abstract visualization of data networks.",
-      "imageUrl": "https://images.unsplash.com/photo-1626908013351-800ddd734b8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhYnN0cmFjdCUyMGRhdGF8ZW58MHx8fHwxNzY1NTE2NDg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "abstract data"
-    },
-    {
-      "id": "project-2",
-      "description": "Modern e-commerce platform interface.",
-      "imageUrl": "https://images.unsplash.com/photo-1678690832311-bb6e361989ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWdufGVufDB8fHx8MTc2NTUxMzAyNnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "website design"
-    },
-    {
-      "id": "project-3",
-      "description": "AI-powered mobile application concept.",
-      "imageUrl": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHB8ZW58MHx8fHwxNzY1NDQ2OTA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "mobile app"
-    },
-    {
-      "id": "project-4",
-      "description": "Futuristic dashboard for data analysis.",
-      "imageUrl": "https://images.unsplash.com/photo-1653933686802-86d21b59b03b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkYXNoYm9hcmQlMjB1aXxlbnwwfHx8fDE3NjU1MDkwMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "dashboard ui"
+      "id": "project-madrasandhai",
+      "description": "Bustling marketplace in India.",
+      "imageUrl": "https://images.unsplash.com/photo-1599038234858-76a71b15a6b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBtYXJrZXR8ZW58MHx8fHwxNzY1NjAwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian market"
     },
     {
       "id": "article-1",

@@ -3,34 +3,10 @@ import { Github, Code, Codepen, Linkedin, Briefcase, FileText, Bot, Layers, Shop
 
 export const projects = [
   {
-    title: 'Project Alpha',
-    description: 'A cutting-edge data visualization tool using D3.js and React, providing interactive charts and real-time analytics for enterprise clients.',
-    tags: ['React', 'Next.js', 'Tailwind CSS', 'Prisma'],
-    imageId: 'project-1',
-    githubLink: 'https://github.com/rengabalaji',
-    liveLink: '#',
-  },
-  {
-    title: 'E-commerce Nexus',
-    description: 'A fully responsive e-commerce platform with a custom CMS, payment gateway integration, and advanced filtering capabilities.',
-    tags: ['Next.js', 'Stripe', 'GraphQL', 'Tailwind CSS'],
-    imageId: 'project-2',
-    githubLink: 'https://github.com/rengabalaji',
-    liveLink: '#',
-  },
-  {
-    title: 'CogniApp AI',
-    description: 'A mobile app that leverages machine learning for image recognition, featuring a sleek user interface and offline capabilities.',
-    tags: ['React Native', 'TensorFlow.js', 'Firebase'],
-    imageId: 'project-3',
-    githubLink: 'https://github.com/rengabalaji',
-    liveLink: '#',
-  },
-  {
-    title: 'Dashboard Pro',
-    description: 'A comprehensive dashboard for SaaS products, offering customizable widgets, user role management, and detailed reporting.',
-    tags: ['Vue.js', 'Chart.js', 'Express.js', 'MongoDB'],
-    imageId: 'project-4',
+    title: 'Madrasandhai',
+    description: 'A comprehensive e-commerce platform for discovering and purchasing products from local artisans in Chennai, featuring a modern UI and real-time inventory management.',
+    tags: ['Next.js', 'Firebase', 'Tailwind CSS', 'Stripe'],
+    imageId: 'project-madrasandhai',
     githubLink: 'https://github.com/rengabalaji',
     liveLink: '#',
   },
