@@ -15,7 +15,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="#" className="min-h-screen flex items-center py-32 md:py-40">
+    <section id="#" className="flex items-center py-32 md:py-40">
       <div className="w-full grid md:grid-cols-1 gap-12 items-center">
         <div className="flex flex-col gap-6 text-center md:text-left items-center md:items-start">
           <h1 className="font-headline text-5xl md:text-7xl font-bold">
