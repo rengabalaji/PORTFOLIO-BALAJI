@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -13,6 +14,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from '@/lib/utils';
+import { Tabs, TabsList, TabsTrigger, useTabsContext } from "@/components/ui/tabs";
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
+
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,10 +31,9 @@ const Header = () => {
   }, []);
   
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href === '#') {
+    if (href === 'home') {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      setSheetOpen(false);
     }
     setSheetOpen(false);
   };
@@ -45,11 +48,11 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           <div className="w-24"></div> {/* Placeholder for spacing */}
           
-          <nav className="hidden md:flex items-center gap-6">
+          <TabsList className="hidden md:flex items-center gap-6 bg-transparent">
             {navLinks.map((link) => (
-              <a key={link.name} href={link.href} onClick={(e) => handleLinkClick(e, link.href)} className="text-foreground/80 hover:text-primary transition-colors">
+              <TabsTrigger key={link.name} value={link.href} className="text-foreground/80 hover:text-primary transition-colors data-[state=active]:text-primary data-[state=active]:shadow-none">
                 {link.name}
-              </a>
+              </TabsTrigger>
             ))}
              <Button asChild variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                 <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
@@ -57,7 +60,7 @@ const Header = () => {
                     Resume
                 </a>
             </Button>
-          </nav>
+          </TabsList>
 
           <div className="md:hidden">
              <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
@@ -72,9 +75,9 @@ const Header = () => {
                 </SheetHeader>
                 <nav className="flex flex-col gap-6 mt-8">
                   {navLinks.map((link) => (
-                    <a key={link.name} href={link.href} className="text-xl text-foreground/80 hover:text-primary transition-colors" onClick={(e) => handleLinkClick(e, link.href)}>
+                     <TabsTrigger key={link.name} value={link.href} className="text-xl text-foreground/80 hover:text-primary transition-colors data-[state=active]:text-primary data-[state=active]:shadow-none" onClick={() => setSheetOpen(false)}>
                       {link.name}
-                    </a>
+                    </TabsTrigger>
                   ))}
                   <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground mt-4">
                     <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">

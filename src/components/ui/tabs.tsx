@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -52,4 +53,17 @@ const TabsContent = React.forwardRef<
 ))
 TabsContent.displayName = TabsPrimitive.Content.displayName
 
-export { Tabs, TabsList, TabsTrigger, TabsContent }
+const TabsContext = React.createContext<{
+  value: string;
+  onValueChange: (value: string) => void;
+} | null>(null);
+
+const useTabsContext = () => {
+    const context = React.useContext(TabsContext);
+    if (!context) {
+        throw new Error("useTabsContext must be used within a Tabs component");
+    }
+    return context;
+}
+
+export { Tabs, TabsList, TabsTrigger, TabsContent, useTabsContext };

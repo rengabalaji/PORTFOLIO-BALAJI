@@ -1,3 +1,4 @@
+
 import { Github, Code, Codepen, Linkedin, Twitter, Youtube, Instagram, Briefcase, FileText, Bot, Layers, ShoppingCart, BarChart, PenTool } from 'lucide-react';
 
 export const projects = [
@@ -81,11 +82,11 @@ export const socialLinks = [
 ];
 
 export const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Articles', href: '#articles' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: 'home' },
+    { name: 'Projects', href: 'projects' },
+    { name: 'Skills', href: 'skills' },
+    { name: 'Articles', href: 'articles' },
+    { name: 'Contact', href: 'contact' },
 ];
 
 export const heroData = {
