@@ -3,7 +3,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { submitContactForm } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,27 +29,20 @@ const ContactSection = () => {
     },
   });
 
-  const onSubmit = async (data: ContactFormValues) => {
-    const formData = new FormData();
-    Object.entries(data).forEach(([key, value]) => {
-      formData.append(key, value);
+  const onSubmit = (data: ContactFormValues) => {
+    const subject = encodeURIComponent(`New message from ${data.name}`);
+    const body = encodeURIComponent(`${data.message}\n\nFrom: ${data.name}\nEmail: ${data.email}`);
+    const mailtoLink = `mailto:rengabalaji07@gmail.com?subject=${subject}&body=${body}`;
+
+    // This will attempt to open the user's default email client
+    window.location.href = mailtoLink;
+
+    toast({
+      title: "Email client opened",
+      description: "Please send the email using your preferred mail application.",
     });
 
-    const result = await submitContactForm(null, formData);
-    
-    if (result.success) {
-      toast({
-        title: "Message Sent!",
-        description: result.message,
-      });
-      form.reset();
-    } else {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: result.message,
-      });
-    }
+    form.reset();
   };
 
   return (
@@ -109,7 +101,7 @@ const ContactSection = () => {
           />
           <div className="text-center">
              <Button type="submit" size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground animate-button-glow" disabled={form.formState.isSubmitting}>
-               {form.formState.isSubmitting ? "Sending..." : <>Send Message <Send className="ml-2 h-5 w-5" /></>}
+               {form.formState.isSubmitting ? "Opening..." : <>Send Message <Send className="ml-2 h-5 w-5" /></>}
              </Button>
           </div>
         </form>
