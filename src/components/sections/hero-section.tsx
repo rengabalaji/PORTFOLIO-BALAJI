@@ -6,9 +6,11 @@ import { useTabsContext } from "@/components/ui/tabs";
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const HeroSection = () => {
   const tabs = useTabsContext();
+  const profileImage = PlaceHolderImages.find(p => p.id === 'profile-picture');
 
   const handleHireMeClick = () => {
     if (tabs) {
@@ -50,14 +52,16 @@ const HeroSection = () => {
                 }}
             />
             <div className="relative w-72 h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-accent">
-                <Image 
-                    src="https://picsum.photos/seed/profile/400/400"
-                    alt="Profile Picture"
-                    width={400}
-                    height={400}
-                    className="object-cover w-full h-full"
-                    data-ai-hint="profile picture"
-                />
+                {profileImage && (
+                  <Image 
+                      src={profileImage.imageUrl}
+                      alt="Profile Picture"
+                      width={400}
+                      height={400}
+                      className="object-cover w-full h-full"
+                      data-ai-hint={profileImage.imageHint}
+                  />
+                )}
             </div>
         </div>
       </div>
