@@ -54,7 +54,7 @@ const HeroSection = () => {
             <div className="relative w-72 h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-accent">
                 {profileImage && (
                   <Image 
-                      src={profileImage.imageUrl}
+                      src="/myphoto.jpg"
                       alt="Profile Picture"
                       width={400}
                       height={400}
