@@ -1,5 +1,5 @@
 
-import { Github, Code, Codepen, Linkedin, Briefcase, FileText, Bot, Layers, ShoppingCart, BarChart, PenTool, Home, FolderKanban, Wrench, Newspaper, Mail, Languages } from 'lucide-react';
+import { Github, Code, Codepen, Linkedin, Briefcase, FileText, Bot, Layers, ShoppingCart, BarChart, PenTool, Home, FolderKanban, Wrench, Newspaper, Mail, Languages, Server, BrainCircuit, Terminal, GitMerge, Globe } from 'lucide-react';
 
 export const projects = [
   {
@@ -13,11 +13,36 @@ export const projects = [
 ];
 
 export const skills = [
-  { name: 'HTML & CSS', proficiency: 60, icon: Code },
-  { name: 'JavaScript / TypeScript', proficiency: 50, icon: Code },
-  { name: 'React / Next.js', proficiency: 50, icon: Layers },
-  { name: 'UI/UX Design', proficiency: 45, icon: PenTool },
-  { name: 'Node.js & Backend', proficiency: 45, icon: Bot },
+    {
+      category: 'Frontend',
+      icon: Code,
+      items: 'HTML, CSS',
+    },
+    {
+      category: 'Backend',
+      icon: Server,
+      items: 'Node.js',
+    },
+    {
+      category: 'UI/UX',
+      icon: PenTool,
+      items: 'Canva',
+    },
+    {
+      category: 'Programming',
+      icon: Terminal,
+      items: 'C, Python, Java, JavaScript',
+    },
+    {
+      category: 'Tools',
+      icon: Wrench,
+      items: 'Git, Firebase Studio',
+    },
+    {
+      category: 'Languages',
+      icon: Globe,
+      items: 'Tamil, English, German',
+    },
 ];
 
 export const articles = [

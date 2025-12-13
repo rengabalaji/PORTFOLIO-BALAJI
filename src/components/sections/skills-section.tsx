@@ -1,5 +1,5 @@
+
 import { skills } from '@/lib/data';
-import { Progress } from '@/components/ui/progress';
 import { Card, CardContent } from '../ui/card';
 
 const SkillsSection = () => {
@@ -10,16 +10,15 @@ const SkillsSection = () => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {skills.map((skill, index) => (
-          <Card key={skill.name} className="bg-card/50 backdrop-blur-sm border-border">
+          <Card key={index} className="bg-card/50 backdrop-blur-sm border-border">
             <CardContent className="p-6">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-3">
-                  <skill.icon className="h-7 w-7 text-accent" />
-                  <span className="font-semibold text-lg text-foreground">{skill.name}</span>
+              <div className="flex flex-col items-center text-center gap-4">
+                <skill.icon className="h-10 w-10 text-accent" />
+                <div className='flex-grow'>
+                    <h3 className="font-semibold text-lg text-foreground">{skill.category}</h3>
+                    <p className="text-sm text-muted-foreground mt-2">{skill.items}</p>
                 </div>
-                <span className="text-sm font-medium text-primary">{skill.proficiency}%</span>
               </div>
-              <Progress value={skill.proficiency} className="h-2 [&>div]:bg-primary" />
             </CardContent>
           </Card>
         ))}
