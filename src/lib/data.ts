@@ -1,5 +1,5 @@
 
-import { Github, Code, Codepen, Linkedin, Briefcase, FileText, Bot, Layers, ShoppingCart, BarChart, PenTool, Home, FolderKanban, Wrench, Newspaper, Mail } from 'lucide-react';
+import { Github, Code, Codepen, Linkedin, Briefcase, FileText, Bot, Layers, ShoppingCart, BarChart, PenTool, Home, FolderKanban, Wrench, Newspaper, Mail, Languages } from 'lucide-react';
 
 export const projects = [
   {
@@ -44,9 +44,8 @@ export const articles = [
 
 export const codingProfiles = [
   { name: 'GitHub', link: 'https://github.com/rengabalaji', icon: Github },
-  { name: 'LeetCode', link: '#', icon: Code },
-  { name: 'SkillRack', link: '#', icon: Briefcase },
-  { name: 'Codepen', link: '#', icon: Codepen },
+  { name: 'LeetCode', link: 'https://leetcode.com/u/NczbUCt1vt/', icon: Code },
+  { name: 'Duolingo', link: '#', icon: Languages },
 ];
 
 export const socialLinks = [
