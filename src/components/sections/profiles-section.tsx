@@ -6,10 +6,10 @@ import { Card } from '../ui/card';
 const ProfilesSection = () => {
   return (
     <section id="profiles">
-      <h2 className="text-3xl md:text-4xl font-headline font-bold mb-8">
+      <h2 className="text-3xl md:text-4xl font-headline font-bold mb-8 text-center">
         Coding <span className="text-accent animate-glow">Profiles</span>
       </h2>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
         {codingProfiles.map((profile) => (
           <Link href={profile.link} key={profile.name} target="_blank" rel="noopener noreferrer" className="group">
             <Card className="bg-card/50 backdrop-blur-sm border-border p-4 flex flex-col items-center justify-center gap-3 text-center h-full transition-all duration-300 hover:border-accent hover:-translate-y-2 hover:bg-accent/10">

@@ -55,7 +55,7 @@ export const navLinks = [
     { name: 'Home', href: 'home', icon: Home },
     { name: 'Projects', href: 'projects', icon: FolderKanban },
     { name: 'Skills', href: 'skills', icon: Wrench },
-    { name: 'Articles', href: 'articles', icon: Newspaper },
+    { name: 'Learnings', href: 'learnings', icon: Newspaper },
     { name: 'Contact', href: 'contact', icon: Mail },
 ];
 
