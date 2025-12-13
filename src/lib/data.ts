@@ -45,7 +45,7 @@ export const articles = [
 export const codingProfiles = [
   { name: 'GitHub', link: 'https://github.com/rengabalaji', icon: Github },
   { name: 'LeetCode', link: 'https://leetcode.com/u/NczbUCt1vt/', icon: Code },
-  { name: 'Duolingo', link: '#', icon: Languages },
+  { name: 'Duolingo', link: 'https://www.duolingo.com/profile/b_a_l_a_j_i_2_5', icon: Languages },
 ];
 
 export const socialLinks = [
