@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { navLinks } from '@/lib/data';
 import { Button } from './ui/button';
-import { Menu, FileText } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -31,18 +31,6 @@ const Header = () => {
                     </TooltipContent>
                   </Tooltip>
                 ))}
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button asChild variant="outline" size="icon" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full h-12 w-12 mt-2">
-                        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                            <FileText className="h-6 w-6" />
-                        </a>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent side="left" className="bg-background border-border text-foreground">
-                      <p>Resume</p>
-                  </TooltipContent>
-                </Tooltip>
               </TabsList>
             </TooltipProvider>
         </div>
@@ -69,12 +57,6 @@ const Header = () => {
                       {link.name}
                     </TabsTrigger>
                   ))}
-                  <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground mt-4">
-                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                        <FileText className="mr-2 h-4 w-4" />
-                        Resume
-                    </a>
-                </Button>
                 </nav>
               </SheetContent>
             </Sheet>
