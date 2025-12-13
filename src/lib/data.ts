@@ -10,6 +10,14 @@ export const projects = [
     githubLink: 'https://github.com/rengabalaji/Madras-Sandhai',
     liveLink: 'https://madras-sandhai-five.vercel.app/',
   },
+  {
+    title: 'Task Manager',
+    description: 'A simple and intuitive task manager to help you organize your daily tasks and boost your productivity.',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Local Storage'],
+    imageId: 'project-task-manager',
+    githubLink: '#',
+    liveLink: '#',
+  },
 ];
 
 export const skills = [
