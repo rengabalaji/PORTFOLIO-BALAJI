@@ -13,10 +13,10 @@ export const projects = [
 ];
 
 export const skills = [
-  { name: 'JavaScript / TypeScript', proficiency: 95, icon: Code },
-  { name: 'React / Next.js', proficiency: 95, icon: Layers },
-  { name: 'UI/UX Design', proficiency: 90, icon: PenTool },
-  { name: 'Node.js & Backend', proficiency: 85, icon: Bot },
+  { name: 'JavaScript / TypeScript', proficiency: 50, icon: Code },
+  { name: 'React / Next.js', proficiency: 50, icon: Layers },
+  { name: 'UI/UX Design', proficiency: 45, icon: PenTool },
+  { name: 'Node.js & Backend', proficiency: 45, icon: Bot },
 ];
 
 export const articles = [
