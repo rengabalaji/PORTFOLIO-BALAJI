@@ -17,8 +17,6 @@ export const skills = [
   { name: 'React / Next.js', proficiency: 95, icon: Layers },
   { name: 'UI/UX Design', proficiency: 90, icon: PenTool },
   { name: 'Node.js & Backend', proficiency: 85, icon: Bot },
-  { name: 'Database Management', proficiency: 80, icon: BarChart },
-  { name: 'E-commerce Solutions', proficiency: 88, icon: ShoppingCart },
 ];
 
 export const articles = [
