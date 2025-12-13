@@ -61,7 +61,7 @@ export const navLinks = [
 
 export const heroData = {
     name: "Renga Balaji",
-    profession: "an aspiring tech student",
+    profession: "An Aspiring Tech Student",
     intro: "I craft immersive and beautiful web experiences with a passion for modern design and cutting-edge technologies. My goal is to build products that are not only functional but also a delight to use.",
     achievements: [
         "Led development on a platform serving 1M+ users.",
