@@ -13,6 +13,7 @@ export const projects = [
 ];
 
 export const skills = [
+  { name: 'HTML & CSS', proficiency: 60, icon: Code },
   { name: 'JavaScript / TypeScript', proficiency: 50, icon: Code },
   { name: 'React / Next.js', proficiency: 50, icon: Layers },
   { name: 'UI/UX Design', proficiency: 45, icon: PenTool },
